@@ -1,13 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rtire <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: rtire <rtire@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/20 18:37:46 by rtire             #+#    #+#             */
-/*   Updated: 2022/05/20 18:37:48 by rtire            ###   ########.fr       */
+/*   Created: 2022/01/16 21:06:06 by rtire             #+#    #+#             */
+/*   Updated: 2022/01/16 22:42:39 by rtire            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-//#include "minishell.h"
+t_list	*ft_lstlast(t_list *lst)
+{
+	if (!lst)
+		return (0);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
+}

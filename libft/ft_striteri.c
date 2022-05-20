@@ -1,13 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rtire <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: rtire <rtire@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/20 18:37:46 by rtire             #+#    #+#             */
-/*   Updated: 2022/05/20 18:37:48 by rtire            ###   ########.fr       */
+/*   Created: 2021/10/20 18:15:13 by rtire             #+#    #+#             */
+/*   Updated: 2021/10/20 19:35:03 by rtire            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "minishell.h"
+#include "libft.h"
+
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+{
+	size_t	i;
+
+	i = 0;
+	if (!s || !f)
+		return ((void)0);
+	while (s[i])
+	{
+		f(i, &s[i]);
+		i++;
+	}
+}

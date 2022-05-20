@@ -1,13 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rtire <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: rtire <rtire@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/20 18:37:46 by rtire             #+#    #+#             */
-/*   Updated: 2022/05/20 18:37:48 by rtire            ###   ########.fr       */
+/*   Created: 2022/01/18 15:18:22 by rtire             #+#    #+#             */
+/*   Updated: 2022/01/18 15:30:49 by rtire            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "minishell.h"
+//#include "libft.h"
+//
+//t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+//{
+//	t_list	*new_list;
+//
+//	if (!lst || !f || !del)
+//		return (0);
+//
+//	return (new_list);
+//}
