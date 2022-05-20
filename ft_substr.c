@@ -1,4 +1,4 @@
-#include <minishell.h>
+//#include "minishell.h"
 
 static size_t	ft_checklen(char const *s, unsigned int start, size_t len)
 {

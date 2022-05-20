@@ -1,4 +1,4 @@
-#include <minishell.h>
+//#include "minishell.h"
 
 static size_t	ft_wordlen(const char *str, char c)
 {
