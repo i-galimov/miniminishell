@@ -11,10 +11,6 @@ static size_t	ft_checklen(char const *s, unsigned int start, size_t len)
 	return (len);
 }
 
-
-asdas
-da
-sda
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	i;
