@@ -1,0 +1,47 @@
+#include "buildin.h"
+
+int	check_new_line(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (str && str[i])
+	{
+		if (str[i] == '-' && str[i + 1] == 'n')
+		{
+			i++;
+			while (str[i] != '\0')
+			{
+				if (str[i] != 'n' && str[i] != '\0')
+					return (1);
+				i++;
+			}
+			return (0);
+		}
+	}
+	return (1);
+}
+
+int	ft_echo(char **arg)
+{
+	int	x;
+	int	i;
+
+	x = 1;
+	i = 0;
+	while (arg[x])
+	{
+		if (!check_new_line(arg[x]))
+			i++;
+		else
+		{
+			printf("%s", arg[x]);
+			if (arg[x + 1] != NULL)
+				printf(" ");
+		}
+		x++;
+	}
+	if (!i)
+		printf("\n");
+	return (0);
+}
