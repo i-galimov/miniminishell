@@ -28,8 +28,18 @@ typedef struct s_buildin
 
 } t_buildin;
 
-int	ft_echo(char **arg);
-int	check_new_line(char *str);
+// pipex_for_minishell.c
+char	*ft_path(char *cmd, char **env);
+char	*ft_pwd_path(char *cmd, char **env);
+void	ft_get_cmd(char *argv, char **env);
+void	ft_parent_process(char **argv, char **env, int *fd);
+void	ft_child_process(char **argv, char **env, int *fd);
+int		ft_fork_work(int argc, char *argv[], char **env);
+// env
+void	ft_env(char **env);
+// echo
+int		ft_echo(char **arg);
+int		check_new_line(char *str);
 
 
 

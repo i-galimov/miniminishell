@@ -1,11 +1,16 @@
 #include "buildin.h"
 
-int main(void)
+int main(int argc, char **argv, char **env)
 {
 	char *line;
 	char **args = NULL;
 
-	line = readline("minishell$ ");	
+	while (1)
+	{
+		line = readline("phella_shell ");
+		if (line && *line)
+			 ft_fork_work(argc, &line, env);
+	}
 
 /* 	char buildin[7][6] = 
 	{
@@ -23,6 +28,8 @@ int main(void)
 		args[0] = line;
 		ft_echo(args);
 	}
+	if (ft_strnstr(line, "env", 3))
+		ft_env(env);
 	// if (line == "cd")
 	// 	ft_cd();
 	// if (line == "pwd")

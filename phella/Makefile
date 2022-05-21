@@ -1,4 +1,4 @@
-NAME = buildin
+NAME = phella_shell
 
 SOURCE		=	ft_cd.c\
 				ft_echo.c\
@@ -7,13 +7,14 @@ SOURCE		=	ft_cd.c\
 				ft_export.c\
 				ft_pwd.c\
 				ft_unset.c\
+				pipex_for_minishell.c\
 				run_buildin.c
 
 HEADER = buildin.h
 
 OBJ = $(SOURCE:%.c=%.o)
 
-CFLAGS		= -Wall -Werror -Wextra -I /Users/$(USER)/.brew/opt/readline/include -lreadline #-g
+CFLAGS		= -I /Users/$(USER)/.brew/opt/readline/include -lreadline #-g -Wall -Werror -Wextra
 
 CC = gcc
 
