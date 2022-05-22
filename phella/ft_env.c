@@ -1,11 +1,11 @@
 #include "buildin.h"
 
-void	ft_env(char **env)
+void	ft_env(char **env, t_env *e)
 {
 	int i = 0;
-	while(env[i])
+	while(e->env_save[i])
 	{
-		printf ("%s\n", env[i]);
+		printf ("%s\n", e->env_save[i]);
 		i++;
 	}
 }

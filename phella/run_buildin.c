@@ -3,7 +3,10 @@
 int main(int argc, char **argv, char **env)
 {
 	char *line;
-	char **args = NULL;
+	// char **args = NULL;
+	// t_env e;
+	// save_env(env, &e);
+	// ft_env(env, &e);
 
 	while (1)
 	{
