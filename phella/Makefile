@@ -1,4 +1,4 @@
-NAME = phella_shell
+NAME = minishell
 
 SOURCE		=	ft_cd.c\
 				ft_echo.c\
@@ -14,7 +14,9 @@ HEADER = buildin.h
 
 OBJ = $(SOURCE:%.c=%.o)
 
-CFLAGS		= -I /Users/$(USER)/.brew/opt/readline/include -lreadline #-g -Wall -Werror -Wextra
+READLINE_FLAGS	=	-lreadline
+
+CFLAGS	= -I /Users/$(USER)/.brew/opt/readline/include #-g -Wall -Werror -Wextra
 
 CC = gcc
 
@@ -32,7 +34,7 @@ all: $(NAME)
 $(NAME) : $(OBJ) $(HEADER)
 	@echo $(GREEN)"➤	 - Compiling $(NAME)..."
 	@make -C ./libft/
-	@$(CC) $(CFLAGS) -I$(HEADER) $(LIBFT) $(OBJ) -o $(NAME)
+	@$(CC) $(CFLAGS) -I$(HEADER) $(LIBFT) $(OBJ) -o $(NAME) $(READLINE_FLAGS)
 	@echo $(GREEN)"- COMPILED -"
 
 %.o : %.c $(HEADER)

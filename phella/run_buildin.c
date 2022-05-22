@@ -7,9 +7,13 @@ int main(int argc, char **argv, char **env)
 
 	while (1)
 	{
-		line = readline("phella_shell ");
-		if (line && *line)
-			 ft_fork_work(argc, &line, env);
+		line = readline("minishell ");
+		printf("%s\n", line);
+		if (line != NULL)
+			add_history(line);
+		// if (line && *line)
+		// 	ft_fork_work(argc, &line, env);
+		free(line);
 	}
 
 /* 	char buildin[7][6] = 
@@ -23,13 +27,13 @@ int main(int argc, char **argv, char **env)
 		"exit"
 	}; */
 
-	if (ft_strnstr(line, "echo", 4))
-	{
-		args[0] = line;
-		ft_echo(args);
-	}
-	if (ft_strnstr(line, "env", 3))
-		ft_env(env);
+	// if (ft_strnstr(line, "echo", 4))
+	// {
+	// 	args[0] = line;
+	// 	ft_echo(args);
+	// }
+	// if (ft_strnstr(line, "env", 3))
+	// 	ft_env(env);
 	// if (line == "cd")
 	// 	ft_cd();
 	// if (line == "pwd")

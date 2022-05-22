@@ -28,32 +28,32 @@ char	*ft_path(char *cmd, char **env)
 	return (0);
 }
 
-char	*ft_pwd_path(char *cmd, char **env)
-{
-	int		i;
-	char	*pwd_path;
-	char	*res;
-	int		j;
+// char	*ft_pwd_path(char *cmd, char **env)
+// {
+// 	int		i;
+// 	char	*pwd_path;
+// 	char	*res;
+// 	int		j;
 
-	i = 0;
-	j = -1;
-	if (env == NULL)
-		exit (1);
-	while (env[i] && ft_strnstr(env[i], "PWD=", 4) == 0)
-		i++;
-	if (env[i] == NULL)
-		exit(0);
-	pwd_path = (char *)malloc((ft_strlen(env[i]) - 4) * sizeof(char));
-	while (++j < (int)ft_strlen(env[i]) - 4)
-		pwd_path[j] = env[i][j + 4];
-	pwd_path = ft_strjoin(pwd_path, "/");
-	res = ft_strjoin(pwd_path, cmd);
-	if (access(res, F_OK) == 0)
-		return (res);
-	else
-		free(res);
-	exit(0);
-}
+// 	i = 0;
+// 	j = -1;
+// 	if (env == NULL)
+// 		exit (1);
+// 	while (env[i] && ft_strnstr(env[i], "PWD=", 4) == 0)
+// 		i++;
+// 	if (env[i] == NULL)
+// 		exit(0);
+// 	pwd_path = (char *)malloc((ft_strlen(env[i]) - 4) * sizeof(char));
+// 	while (++j < (int)ft_strlen(env[i]) - 4)
+// 		pwd_path[j] = env[i][j + 4];
+// 	pwd_path = ft_strjoin(pwd_path, "/");
+// 	res = ft_strjoin(pwd_path, cmd);
+// 	if (access(res, F_OK) == 0)
+// 		return (res);
+// 	else
+// 		free(res);
+// 	exit(0);
+// }
 
 void	ft_get_cmd(char *argv, char **env)
 {
@@ -74,8 +74,8 @@ void	ft_get_cmd(char *argv, char **env)
 		execve(cmd2[0], cmd, env);
 	}
 	path = ft_path(cmd[0], env);
-	if (path == NULL)
-		path = ft_pwd_path(cmd[0], env);
+	// if (path == NULL)
+	// 	path = ft_pwd_path(cmd[0], env);
 	if (execve(path, cmd, env) == -1)
 	{	
 		perror("Command error");
