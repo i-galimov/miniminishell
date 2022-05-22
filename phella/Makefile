@@ -8,6 +8,7 @@ SOURCE		=	ft_cd.c\
 				ft_pwd.c\
 				ft_unset.c\
 				pipex_for_minishell.c\
+				save_env.c\
 				run_buildin.c
 
 HEADER = buildin.h
@@ -16,7 +17,7 @@ OBJ = $(SOURCE:%.c=%.o)
 
 READLINE_FLAGS	=	-lreadline
 
-CFLAGS	= -I /Users/$(USER)/.brew/opt/readline/include #-g -Wall -Werror -Wextra
+CFLAGS	= -I /Users/$(USER)/.brew/opt/readline/include -g #-Wall -Werror -Wextra
 
 CC = gcc
 

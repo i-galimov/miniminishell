@@ -22,6 +22,12 @@ typedef struct s_envar
 
 } t_envar;
 
+typedef struct s_env
+{
+	char **env_save;
+
+} t_env;
+
 typedef struct s_buildin
 {
 	char *buildin;
@@ -35,10 +41,13 @@ void	ft_get_cmd(char *argv, char **env);
 void	ft_parent_process(char **argv, char **env, int *fd);
 void	ft_child_process(char **argv, char **env, int *fd);
 int		ft_fork_work(int argc, char *argv[], char **env);
+// save_env.c
+void	save_env(char **env, t_env *e);
 // env
-void	ft_env(char **env);
+void	ft_env(char **env, t_env *e);
 // echo
-int		ft_echo(char **arg);
 int		check_new_line(char *str);
+int		ft_echo(char **arg);
+
 
 #endif
