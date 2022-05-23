@@ -12,7 +12,26 @@
 
 #include "minishell.h"
 
-int	main()
+//char	*command_buf;
+
+int	main(int argc, char *argv[])
 {
-	return (0);
+	(void)argc;
+	(void)argv;
+	char	*command_buf;
+//	printf("%d\n", )
+	while (1)
+	{
+		command_buf = readline(BLUE"minishell> ");
+
+		if (ft_strlen(command_buf) > 0)
+			add_history(command_buf);
+		if (!strcmp(command_buf, "ls"))
+			system("ls");
+		else if (!ft_strncmp(command_buf, "pwd", ft_strlen("pwd")))
+			system("pwd");
+		else if (!ft_strncmp(command_buf, "exit", ft_strlen("exit")))
+			break ;
+	}
+	free(command_buf);
 }

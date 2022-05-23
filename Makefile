@@ -12,12 +12,6 @@
 
 NAME = minishell
 
-#SOURCE		=	utils.c\
-#				ft_split.c\
-#				ft_substr.c\
-#				list_utils.c\
-#				parcer.c
-
 SOURCE = main.c
 
 HEADER = minishell.h
@@ -25,6 +19,8 @@ HEADER = minishell.h
 OBJ = $(SOURCE:%.c=%.o)
 
 CFLAGS		= -Wall -Werror -Wextra #-g
+
+READLINE	= -lreadline
 
 CC = gcc
 
@@ -42,7 +38,7 @@ all: $(NAME)
 $(NAME) : $(OBJ) $(HEADER)
 	@echo $(GREEN)"➤	 - Compiling $(NAME)..."
 	@make -C ./libft/
-	@$(CC) $(CFLAGS) -I$(HEADER) $(LIBFT) $(OBJ) -o $(NAME)
+	@$(CC) $(CFLAGS) -I$(HEADER) $(LIBFT) $(READLINE) $(OBJ) -o $(NAME)
 	@echo $(GREEN)"- COMPILED -"
 
 %.o : %.c $(HEADER)
