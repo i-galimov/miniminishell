@@ -12,7 +12,7 @@
 # include <fcntl.h>
 # include <sys/types.h>
 # include <sys/wait.h>
-# include "/Users/phella/Desktop/1/minishell/libft/libft.h"
+# include "libft/libft.h"
 
 typedef struct s_envar
 {
