@@ -9,7 +9,7 @@ SOURCE		=	ft_cd.c\
 				ft_unset.c\
 				pipex_for_minishell.c\
 				save_env.c\
-				run_buildin.c
+				minizhopa.c
 
 HEADER = buildin.h
 
