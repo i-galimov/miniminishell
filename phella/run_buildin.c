@@ -2,7 +2,8 @@
 
 int main(int argc, char **argv, char **env)
 {
-	char *line;
+	char	*line;
+	int		pid;
 	// char **args = NULL;
 	// t_env e;
 	// save_env(env, &e);
@@ -16,10 +17,17 @@ int main(int argc, char **argv, char **env)
 			add_history(line);
 		if (!ft_strncmp(line, "exit", ft_strlen("exit")))
 			break ;
-		// if (line && *line)
-		// 	ft_get_cmd(line, env);
 		if (line && *line)
-			system(line);
+		{	
+			pid = fork();
+			if (pid == 0)
+			{
+				ft_get_cmd(line, env);
+				waitpid(pid, 0, 0);
+			}
+		}
+		// if (line && *line)
+		// 	system(line);
 	}
 	free(line);
 
