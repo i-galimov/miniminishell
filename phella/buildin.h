@@ -14,6 +14,8 @@
 # include <sys/wait.h>
 # include "libft/libft.h"
 
+# define BLUE "\033[0;34m"
+
 typedef struct s_envar
 {
 	char *key;
@@ -42,7 +44,8 @@ void	ft_parent_process(char **argv, char **env, int *fd);
 void	ft_child_process(char **argv, char **env, int *fd);
 int		ft_fork_work(int argc, char *argv[], char **env);
 // save_env.c
-void	save_env(char **env, t_env *e);
+void		save_env(char **env, t_env *e);
+int			size_env(char **env);
 // env
 void	ft_env(char **env, t_env *e);
 // echo
