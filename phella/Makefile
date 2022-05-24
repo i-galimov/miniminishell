@@ -1,4 +1,4 @@
-NAME = minishell
+NAME = minizhopa
 
 SOURCE		=	ft_cd.c\
 				ft_echo.c\

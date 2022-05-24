@@ -10,14 +10,18 @@ int main(int argc, char **argv, char **env)
 
 	while (1)
 	{
-		line = readline("minishell ");
+		line = readline("minizhopa ");
 		printf("%s\n", line);
 		if (line != NULL)
 			add_history(line);
+		if (!ft_strncmp(line, "exit", ft_strlen("exit")))
+			break ;
 		// if (line && *line)
-		// 	ft_fork_work(argc, &line, env);
-		free(line);
+		// 	ft_get_cmd(line, env);
+		if (line && *line)
+			system(line);
 	}
+	free(line);
 
 /* 	char buildin[7][6] = 
 	{
