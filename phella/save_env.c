@@ -6,8 +6,8 @@ void	save_env(char **env, t_env *e)
 	
 	i = -1;
 	while (env[++i])
-		e->env_save[i] = ft_strdup(env[i]);
-	e->env_save[i] = NULL;
+		e->env2[i] = ft_strdup(env[i]);
+	e->env2[i] = NULL;
 }
 
 int	size_env(char **env)

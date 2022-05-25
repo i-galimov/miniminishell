@@ -26,7 +26,7 @@ typedef struct s_envar
 
 typedef struct s_env
 {
-	char 	**env_save;
+	char 	**env2;
 	char	*pwd;
 
 } t_env;
@@ -53,10 +53,9 @@ void	ft_env(t_env *e);
 int		check_new_line(char *str);
 int		ft_echo(char **arg);
 // check_env.c
-void 	check_buildin(char *line, t_env *e);
+int		check_buildin(char *line, t_env *e);
 // ft_pwd.c
-void	*save_pwd(t_env *e);
+void	save_pwd(t_env *e);
 void	ft_pwd(t_env *e);
-
 
 #endif
