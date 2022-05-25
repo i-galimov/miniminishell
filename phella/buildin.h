@@ -50,8 +50,9 @@ int			size_env(char **env);
 // env
 void	ft_env(t_env *e);
 // echo
-int		check_new_line(char *str);
-int		ft_echo(char **arg);
+int		check_echo(char *line);
+int		check_echo_n(char *line);
+void	ft_echo(char *line);
 // check_env.c
 int		check_buildin(char *line, t_env *e);
 // ft_pwd.c
