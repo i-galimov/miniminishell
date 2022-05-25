@@ -1,18 +1,18 @@
 #include "buildin.h"
 
-void *save_pwd(t_env *e)
+void save_pwd(t_env *e)
 {
 	int	i;
 
 	i = -1;
-	while (e->env_save[++i])
+	while (e->env2[++i])
 	{
-		if (e->env_save[i][0] == 'P')
-			if (e->env_save[i][1] == 'W')
-				if (e->env_save[i][2] == 'D')
-					if (e->env_save[i][3] == '=')
+		if (e->env2[i][0] == 'P')
+			if (e->env2[i][1] == 'W')
+				if (e->env2[i][2] == 'D')
+					if (e->env2[i][3] == '=')
 					{
-						e->pwd = ft_strdup(e->env_save[i]);
+						e->pwd = ft_strdup(e->env2[i]);
 						break ;
 					}
 	}
