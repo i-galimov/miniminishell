@@ -6,16 +6,15 @@ int main(int argc, char **argv, char **env)
 	int		pid;
 	t_env	e;
 
-	e.env_save = (char **) malloc(size_env(env) * 1500);
-	// save_env(env, &e);
-
-	// ft_env(env, &e);
+	e.env_save = malloc(sizeof(char *) * size_env(env) + 1);
+	save_env(env, &e);
 	while (1)
 	{
 		line = readline(BLUE"minizhopa ");
-		printf("%s\n", line);
+		// printf("%s\n", line);
 		if (line != NULL)
 			add_history(line);
+		check_buildin(line, &e);
 		if (!ft_strncmp(line, "exit", ft_strlen("exit")))
 			break ;
 		if (line && *line)
