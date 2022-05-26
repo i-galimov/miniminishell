@@ -1,11 +1,10 @@
 #include "buildin.h"
 
 void ft_pwd(t_env *e)
-{	
-	int	i;
+{
+	char	dir[500];
 
-	i = 3;
-	while (e->pwd[i++])
-		printf("%c", e->pwd[i]);
-	printf("\n");
+	getcwd(dir, 500);
+
+	printf("%s\n", dir);
 }
