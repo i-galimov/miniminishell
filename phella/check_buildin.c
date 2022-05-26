@@ -17,6 +17,11 @@ int	check_buildin(char *line, t_env *e)
 		ft_echo(line);
 		return (1);
 	}
+	if (!ft_strncmp(line, "cd", ft_strlen("cd")))
+	{
+		ft_cd(line, e);
+		return (1);
+	}
 	// if (!ft_strncmp(line, "cd", ft_strlen("cd")))
 	// 	ft_cd();
 	// if (!ft_strncmp(line, "exit", ft_strlen("exit")))

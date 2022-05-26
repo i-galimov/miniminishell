@@ -10,6 +10,8 @@ SOURCE		=	ft_cd.c\
 				pipex_for_minishell.c\
 				save_env.c\
 				check_buildin.c\
+				var_env_parser.c\
+				t_envar_list_ops.c\
 				minizhopa.c
 
 HEADER = buildin.h
