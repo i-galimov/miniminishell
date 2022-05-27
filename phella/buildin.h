@@ -30,9 +30,12 @@ typedef struct s_envar
 
 typedef struct s_env
 {
+	int		count_var;
 	char	*pwd;
 	char	*home;
 	char	**env2;
+	char	**key_env;
+	char	**value_env;
 } t_env;
 
 typedef struct s_buildin
@@ -70,11 +73,15 @@ int		check_cd_way(char *line);
 void	ft_cd(char *line, t_env *e);
 // var_env_parser.c
 int		check_var_env(char *line);
+int		check_var_env2(char *line, t_env *e);
 char	*var_env_parser(t_env *e, char *line);
 // t_envar_list_ops.c
 t_envar	*ft_lstnew2(void *key, void *value);
 void	ft_lstadd_back2(t_envar **lst, t_envar *new);
 int		ft_lstsize2(t_envar *lst);
 t_envar	*ft_lstlast2(t_envar *lst);
+// ft_exit.c
+int	check_exit(char *line);
+int	check_exit_d(char *line);
 
 #endif

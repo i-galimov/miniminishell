@@ -7,10 +7,7 @@ int	check_echo(char *line)
 			if (line[2] == 'h')
 				if (line[3] == 'o')
 					if (line[4] == ' ')
-					{
-						check_echo_n(line);
-						return (1);
-					}
+						return (check_echo_n(line));
 	return (0);
 }
 
@@ -28,7 +25,6 @@ void ft_echo(char *line)
 	int	i;
 
 	i = 7;
-
 	if (check_echo_n(line))
 	{
 		while (line[i++])

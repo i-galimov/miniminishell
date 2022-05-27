@@ -1,5 +1,50 @@
-// #include "buildin.h"
+#include "buildin.h"
 
+int	check_exit(char *line)
+{
+	if (line[0] == 'e')
+		if (line[1] == 'x')
+			if (line[2] == 'i')
+				if (line[3] == 't')
+					if (line[4] == ' ')
+						return (check_exit_d(line));
+	return (0);
+}
+
+int	check_exit_d(char *line)
+{
+	int	i;
+
+	i = 5;
+	while (line[i])
+	{
+		if (ft_isdigit(line[i]))
+			i++;
+		if (!ft_isdigit(line[i]))
+			return (0);
+	}
+	return (1);
+}
+
+// void ft_exit(char *line)
+// {	
+// 	int	i;
+
+// 	i = 7;
+
+// 	if (check_echo_n(line))
+// 	{
+// 		while (line[i++])
+// 			printf("%c", line[i]);
+// 	}
+// 	i = 4;
+// 	if (!check_echo_n(line) && check_echo(line))
+// 	{
+// 		while (line[i++])
+// 			printf("%c", line[i]);
+// 		printf("%c", '\n');
+// 	}
+// }
 
 // int	check_arg(char *arg)
 // {

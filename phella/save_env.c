@@ -3,13 +3,30 @@
 void	save_env(char **env, t_env *e)
 {
 	int		i;
+	char	**temp;
 
 	i = -1;
 	while (env[++i])
+	{
 		e->env2[i] = ft_strdup(env[i]);
+		temp = ft_split(env[i], '=');
+		e->key_env[i] = temp[0];
+		e->value_env[i] = temp[1];
+		e->count_var = i;
+	}
 	e->env2[i] = NULL;
+	e->key_env[i] = NULL;
+	e->value_env[i] = NULL;
 	save_pwd(e);
 	save_home(e);
+	// printf("%d\n", e->count_var);
+	// int	j;
+	// j = -1;
+	// while (++j < i)
+	// {
+	// 	printf("%s\n", e->key_env[j]);
+	// 	printf("%s\n", e->value_env[j]);
+	// }
 }
 
 int	size_env(char **env)
