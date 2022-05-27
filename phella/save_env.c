@@ -24,7 +24,8 @@ int	size_env(char **env)
 
 void save_pwd(t_env *e)
 {
-	int	i;
+	int		i;
+	char	dir[500];
 
 	i = -1;
 	// while (e->env2[++i])
@@ -38,7 +39,6 @@ void save_pwd(t_env *e)
 	// 					break ;
 	// 				}
 	// }
-	char	dir[500];
 	getcwd(dir, 500);
 	e->pwd = ft_strdup(dir);
 	// printf("%s\n", e->pwd);

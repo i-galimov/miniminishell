@@ -16,8 +16,7 @@ int main(int argc, char **argv, char **env)
 			add_history(line);
 		if (!ft_strncmp(line, "exit", ft_strlen("exit")))
 			break ;
-		
-		if (line && *line && !check_buildin(line, &e))
+		if (line && *line && !check_buildin(line, &e) && !var_env_parser(&e, line))
 		{	
 			pid = fork();
 			if (pid == 0)

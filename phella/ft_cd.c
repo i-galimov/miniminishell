@@ -15,7 +15,6 @@ int	check_cd(char *line)
 	return (0);
 }
 
-
 void	ft_cd(char *line, t_env *e)
 {	
 	char	*way_home;

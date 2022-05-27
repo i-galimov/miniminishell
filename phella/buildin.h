@@ -32,8 +32,7 @@ typedef struct s_env
 {
 	char	*pwd;
 	char	*home;
-	char 	**env2;
-
+	char	**env2;
 } t_env;
 
 typedef struct s_buildin
@@ -69,5 +68,13 @@ int		check_cd(char *line);
 int		check_cd_dd(char *line);
 int		check_cd_way(char *line);
 void	ft_cd(char *line, t_env *e);
+// var_env_parser.c
+int		check_var_env(char *line);
+char	*var_env_parser(t_env *e, char *line);
+// t_envar_list_ops.c
+t_envar	*ft_lstnew2(void *key, void *value);
+void	ft_lstadd_back2(t_envar **lst, t_envar *new);
+int		ft_lstsize2(t_envar *lst);
+t_envar	*ft_lstlast2(t_envar *lst);
 
 #endif
