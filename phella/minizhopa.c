@@ -7,6 +7,7 @@ int main(int argc, char **argv, char **env)
 	t_env	e;
 
 	e.env2 = malloc(sizeof(char *) * size_env(env) + 1);
+	e.sort_env2 = malloc(sizeof(char *) * size_env(env) + 1);
 	e.key_env = malloc(sizeof(char *) * size_env(env) + 1);
 	e.value_env = malloc(sizeof(char *) * size_env(env) + 1);
 	save_env(env, &e);

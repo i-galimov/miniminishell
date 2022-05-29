@@ -34,6 +34,7 @@ typedef struct s_env
 	char	*pwd;
 	char	*home;
 	char	**env2;
+	char	**sort_env2;
 	char	**key_env;
 	char	**value_env;
 } t_env;
@@ -86,5 +87,7 @@ int		check_exit_d(char *line);
 void	ft_exit(char *line);
 // utils.c
 int		ft_strcmp(char *s1, char *s2);
+
+void	ft_export(char *line, t_env *e);
 
 #endif

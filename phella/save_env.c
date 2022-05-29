@@ -9,6 +9,7 @@ void	save_env(char **env, t_env *e)
 	while (env[++i])
 	{
 		e->env2[i] = ft_strdup(env[i]);
+		e->sort_env2[i] = ft_strdup(env[i]);
 		temp = ft_split(env[i], '=');
 		e->key_env[i] = temp[0];
 		e->value_env[i] = temp[1];
