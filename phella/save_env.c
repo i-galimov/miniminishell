@@ -18,6 +18,7 @@ void	save_env(char **env, t_env *e)
 	e->env2[i] = NULL;
 	e->key_env[i] = NULL;
 	e->value_env[i] = NULL;
+	e->sort_env2[i] = NULL;
 	save_pwd(e);
 	save_home(e);
 	// printf("%d\n", e->count_var);
