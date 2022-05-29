@@ -12,6 +12,7 @@ SOURCE		=	ft_cd.c\
 				check_buildin.c\
 				var_env_parser.c\
 				t_envar_list_ops.c\
+				utils.c\
 				minizhopa.c
 
 HEADER = buildin.h
