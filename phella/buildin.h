@@ -84,5 +84,7 @@ t_envar	*ft_lstlast2(t_envar *lst);
 int		check_exit(char *line);
 int		check_exit_d(char *line);
 void	ft_exit(char *line);
+// utils.c
+int		ft_strcmp(char *s1, char *s2);
 
 #endif
