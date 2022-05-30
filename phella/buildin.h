@@ -31,11 +31,13 @@ typedef struct s_envar
 typedef struct s_env
 {
 	int		count_var;
+	int		count_sort_var;
 	char	*pwd;
 	char	*home;
 	char	**env2;
-	char	**sort_env2;
 	char	**temp_env2;
+	char	**temp_sort_env2;
+	char	**sort_env2;
 	char	**key_env;
 	char	**value_env;
 } t_env;
@@ -93,8 +95,11 @@ void	ft_export(char *line, t_env *e);
 int		check_export(char *line);
 int		check_export_var(char *line);
 void	sort_env(t_env *e);
+// temp_env.c
 void	temp_env(t_env *e, char *line);
 void	temp_sort_env(t_env *e, char *line);
-void	temp_env2(char *line, char **array);
+// unset.c
+void	ft_unset(t_env *e, char *line);
+int		check_unset_var(char *line);
 
 #endif
