@@ -94,5 +94,7 @@ int		check_export(char *line);
 int		check_export_var(char *line);
 void	sort_env(t_env *e);
 void	temp_env(t_env *e, char *line);
+void	temp_sort_env(t_env *e, char *line);
+void	temp_env2(char *line, char **array);
 
 #endif

@@ -21,7 +21,7 @@ OBJ = $(SOURCE:%.c=%.o)
 
 READLINE_FLAGS	=	-lreadline
 
-CFLAGS	= -I /Users/$(USER)/.brew/opt/readline/include -g #-Wall -Werror -Wextra
+CFLAGS	= -I /Users/$(USER)/.brew/opt/readline/include #-Wall -Werror -Wextra
 
 CC = gcc
 
@@ -39,11 +39,11 @@ all: $(NAME)
 $(NAME) : $(OBJ) $(HEADER)
 	@echo $(GREEN)"➤	 - Compiling $(NAME)..."
 	@make -C ./libft/
-	@$(CC) $(CFLAGS) -I$(HEADER) $(LIBFT) $(OBJ) -o $(NAME) $(READLINE_FLAGS)
+	@$(CC) $(CFLAGS) -I$(HEADER) $(LIBFT) $(OBJ) -o $(NAME) $(READLINE_FLAGS) -g
 	@echo $(GREEN)"- COMPILED -"
 
 %.o : %.c $(HEADER)
-	@$(CC) $(CFLAGS) -I$(HEADER) -c $< -o $@
+	@$(CC) $(CFLAGS) -I$(HEADER) -c $< -o $@ -g
 	@printf $(BLUE)"█"
 
 clean :

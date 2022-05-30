@@ -90,6 +90,9 @@ void	ft_export(char *line, t_env *e)
 	{
 		e->count_var += 1;
 		temp_env(e, line);
+		temp_sort_env(e, line);
+		// temp_env2(e, e->env2);
+		// temp_env2(line, e->sort_env2);
 	}
 }
 
@@ -99,6 +102,8 @@ void	temp_env(t_env *e, char *line)
 
 	i = -1;
 	e->temp_env2 = malloc(sizeof(char *) * e->count_var + 1);
+	if (!e->temp_env2)
+		return ;
 	while (e->env2[++i])
 		e->temp_env2[i] = ft_strdup(e->env2[i]);
 	e->temp_env2[e->count_var] = ft_strdup(line + 7);
@@ -109,3 +114,44 @@ void	temp_env(t_env *e, char *line)
 	free(e->env2);
 	e->env2 = e->temp_env2;
 }
+
+void	temp_sort_env(t_env *e, char *line)
+{
+	int	i;
+
+	i = -1;
+	while (e->sort_env2[++i])
+		e->temp_env2[i] = ft_strdup(e->sort_env2[i]);
+	e->temp_env2[e->count_var] = ft_strdup(line + 7);
+	e->temp_env2[e->count_var + 1] = NULL;
+	i = -1;
+	while (e->sort_env2[++i])
+		free(e->sort_env2[i]);
+	free(e->sort_env2);
+	e->sort_env2 = e->temp_env2;
+}
+
+// void	temp_env2(char *line, char **array)
+// {
+// 	char	**new_array;
+// 	int		i;
+// 	int		count_array;
+
+// 	i = -1;
+// 	count_array = 0;
+// 	while (array[count_array])
+// 		count_array++;
+// 	count_array += 2 ;
+// 	new_array = malloc(sizeof(char *) * count_array);
+// 	if (!new_array)
+// 		return ;
+// 	while (array[++i])
+// 		new_array[i] = ft_strdup(array[i]);
+// 	new_array[count_array - 1] = ft_strdup(line + 7);
+// 	new_array[count_array] = NULL;
+// 	i = -1;
+// 	while (array[++i])
+// 		free(array[i]);
+// 	free(array);
+// 	array = new_array;
+// }
