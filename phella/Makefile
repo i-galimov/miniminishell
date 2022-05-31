@@ -9,6 +9,11 @@ SOURCE		=	ft_cd.c\
 				ft_unset.c\
 				pipex_for_minishell.c\
 				save_env.c\
+				check_buildin.c\
+				var_env_parser.c\
+				t_envar_list_ops.c\
+				utils.c\
+				temp_env.c\
 				minizhopa.c
 
 HEADER = buildin.h
@@ -17,7 +22,7 @@ OBJ = $(SOURCE:%.c=%.o)
 
 READLINE_FLAGS	=	-lreadline
 
-CFLAGS	= -I /Users/$(USER)/.brew/opt/readline/include -g #-Wall -Werror -Wextra
+CFLAGS	= -I /Users/$(USER)/.brew/opt/readline/include #-Wall -Werror -Wextra
 
 CC = gcc
 
@@ -35,11 +40,11 @@ all: $(NAME)
 $(NAME) : $(OBJ) $(HEADER)
 	@echo $(GREEN)"➤	 - Compiling $(NAME)..."
 	@make -C ./libft/
-	@$(CC) $(CFLAGS) -I$(HEADER) $(LIBFT) $(OBJ) -o $(NAME) $(READLINE_FLAGS)
+	@$(CC) $(CFLAGS) -I$(HEADER) $(LIBFT) $(OBJ) -o $(NAME) $(READLINE_FLAGS) -g
 	@echo $(GREEN)"- COMPILED -"
 
 %.o : %.c $(HEADER)
-	@$(CC) $(CFLAGS) -I$(HEADER) -c $< -o $@
+	@$(CC) $(CFLAGS) -I$(HEADER) -c $< -o $@ -g
 	@printf $(BLUE)"█"
 
 clean :
@@ -53,4 +58,4 @@ fclean : clean
 	@echo $(RED)"- REMOVED $(NAME) -"
 	@make fclean -C ./libft
 
-re     :	fclean all
+re		: fclean all

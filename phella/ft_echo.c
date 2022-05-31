@@ -1,47 +1,40 @@
 #include "buildin.h"
 
-int	check_new_line(char *str)
+int	check_echo(char *line)
 {
-	int	i;
-
-	i = 0;
-	if (str && str[i])
-	{
-		if (str[i] == '-' && str[i + 1] == 'n')
-		{
-			i++;
-			while (str[i] != '\0')
-			{
-				if (str[i] != 'n' && str[i] != '\0')
-					return (1);
-				i++;
-			}
-			return (0);
-		}
-	}
-	return (1);
+	if (line[0] == 'e')
+		if (line[1] == 'c')
+			if (line[2] == 'h')
+				if (line[3] == 'o')
+					if (line[4] == ' ')
+						return (1);
+	return (0);
 }
 
-int	ft_echo(char **arg)
+int	check_echo_n(char *line)
 {
-	int	x;
+	if (line[5] == '-')
+		if (line[6] == 'n')
+			if (line[7] == ' ')
+				return (1);
+	return (0);
+}
+
+void ft_echo(char *line)
+{	
 	int	i;
 
-	x = 1;
-	i = 0;
-	while (arg[x])
+	i = 7;
+	if (check_echo(line) && check_echo_n(line))
 	{
-		if (!check_new_line(arg[x]))
-			i++;
-		else
-		{
-			printf("%s", arg[x]);
-			if (arg[x + 1] != NULL)
-				printf(" ");
-		}
-		x++;
+		while (line[i++])
+			printf("%c", line[i]);
 	}
-	if (!i)
-		printf("\n");
-	return (0);
+	i = 4;
+	if (!check_echo_n(line) && check_echo(line))
+	{
+		while (line[i++])
+			printf("%c", line[i]);
+		printf("%c", '\n');
+	}
 }

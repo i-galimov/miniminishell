@@ -6,19 +6,20 @@ int main(int argc, char **argv, char **env)
 	int		pid;
 	t_env	e;
 
-	e.env_save = (char **) malloc(size_env(env) * 1500);
-	// save_env(env, &e);
-
-	// ft_env(env, &e);
+	e.env2 = malloc(sizeof(char *) * size_env(env) + 1);
+	e.sort_env2 = malloc(sizeof(char *) * size_env(env) + 1);
+	e.key_env = malloc(sizeof(char *) * size_env(env) + 1);
+	e.value_env = malloc(sizeof(char *) * size_env(env) + 1);
+	if (!e.env2 || !e.sort_env2 || !e.key_env || !e.value_env)
+		return (1);
+	save_env(env, &e);
 	while (1)
 	{
-		line = readline(BLUE"minizhopa ");
-		printf("%s\n", line);
+		line = readline(GREEN"minizhopa-> "WHITE);
+		// printf(RED"input(line):'%s'\n", line);
 		if (line != NULL)
 			add_history(line);
-		if (!ft_strncmp(line, "exit", ft_strlen("exit")))
-			break ;
-		if (line && *line)
+		if (line && *line && !check_buildin(line, &e) && !var_env_parser(&e, line))
 		{	
 			pid = fork();
 			if (pid == 0)
@@ -29,7 +30,7 @@ int main(int argc, char **argv, char **env)
 		}
 		// if (line && *line)
 		// 	system(line);
+		free(line);
 	}
-	free(line);
 	return (0);
 }

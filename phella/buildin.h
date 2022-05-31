@@ -15,6 +15,10 @@
 # include "libft/libft.h"
 
 # define BLUE "\033[0;34m"
+# define WHITE "\033[0m"
+# define RED "\033[0;31m"
+# define GREEN "\033[0;32m"
+# define YELLOW "\033[0;33m"
 
 typedef struct s_envar
 {
@@ -26,8 +30,16 @@ typedef struct s_envar
 
 typedef struct s_env
 {
-	char **env_save;
-
+	int		count_var;
+	int		count_sort_var;
+	char	*pwd;
+	char	*home;
+	char	**env2;
+	char	**temp_env2;
+	char	**temp_sort_env2;
+	char	**sort_env2;
+	char	**key_env;
+	char	**value_env;
 } t_env;
 
 typedef struct s_buildin
@@ -44,13 +56,50 @@ void	ft_parent_process(char **argv, char **env, int *fd);
 void	ft_child_process(char **argv, char **env, int *fd);
 int		ft_fork_work(int argc, char *argv[], char **env);
 // save_env.c
-void		save_env(char **env, t_env *e);
-int			size_env(char **env);
+void	save_env(char **env, t_env *e);
+int		size_env(char **env);
+void	save_pwd(t_env *e);
+void	save_home(t_env *e);
 // env
-void	ft_env(char **env, t_env *e);
+void	ft_env(t_env *e);
 // echo
-int		check_new_line(char *str);
-int		ft_echo(char **arg);
-
+int		check_echo(char *line);
+int		check_echo_n(char *line);
+void	ft_echo(char *line);
+// check_env.c
+int		check_buildin(char *line, t_env *e);
+// ft_pwd.c
+void	ft_pwd(t_env *e);
+// ft_cd.c
+int		check_cd(char *line);
+int		check_cd_dd(char *line);
+int		check_cd_way(char *line);
+void	ft_cd(char *line, t_env *e);
+// var_env_parser.c
+int		check_var_env(char *line);
+int		check_var_env2(char *line, t_env *e);
+char	*var_env_parser(t_env *e, char *line);
+// t_envar_list_ops.c
+t_envar	*ft_lstnew2(void *key, void *value);
+void	ft_lstadd_back2(t_envar **lst, t_envar *new);
+int		ft_lstsize2(t_envar *lst);
+t_envar	*ft_lstlast2(t_envar *lst);
+// ft_exit.c
+int		check_exit(char *line);
+int		check_exit_d(char *line);
+void	ft_exit(char *line);
+// utils.c
+int		ft_strcmp(char *s1, char *s2);
+// ft_export.c
+void	ft_export(char *line, t_env *e);
+int		check_export(char *line);
+int		check_export_var(char *line);
+void	sort_env(t_env *e);
+// temp_env.c
+void	temp_env(t_env *e, char *line);
+void	temp_sort_env(t_env *e, char *line);
+// unset.c
+void	ft_unset(t_env *e, char *line);
+int		check_unset_var(char *line);
 
 #endif
